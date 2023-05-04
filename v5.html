@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>v5 - people</title>
+    <meta property="og:title" content="v5 - people" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: IBM Plex Sans Condensed;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: normal;
+        line-height: 1.5;
+        color: var(--dl-color-scheme-darkblue);
+        background-color: var(--dl-color-scheme-lightgrey);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./v5.css" rel="stylesheet" />
+
+      <div class="v5-container">
+        <div class="v5-testimonial">
+          <img
+            alt="image"
+            src="public/playground_assets/1000_f_335131435_drhiqjloklu3gcxtpfkig1v0cggm9vjc-300h.jpg"
+            class="v5-image"
+          />
+          <div class="v5-testimonial1">
+            <div class="v5-container1"></div>
+            <div class="v5-container2"></div>
+          </div>
+          <span class="v5-text">
+            <span>الاستاذ جاسم رياض جاسم باري</span>
+            <br class="v5-text2" />
+            <br />
+          </span>
+          <span class="v5-text4">اختصاص مادة اجتماعيات</span>
+        </div>
+        <div class="v5-container3">
+          <h1 class="v5-text5">تابع المدرسة على فيسبوك</h1>
+        </div>
+        <a
+          href="https://www.facebook.com/groups/471897649664324"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          اضغط&nbsp; هنا
+        </a>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+    <script>
+      window.onload = () => {
+        const runAllScripts = () => {
+          initializeAllSliders();
+        };
+
+        const listenForUrlChanges = () => {
+          let url = location.href;
+          document.body.addEventListener(
+            "click",
+            () => {
+              requestAnimationFrame(() => {
+                if (url !== location.href) {
+                  runAllScripts();
+                  url = location.href;
+                }
+              });
+            },
+            true
+          );
+        };
+
+        const initializeAllSliders = () => {
+          const allSliders = document.querySelectorAll('[data-type="slider"]');
+          allSliders.forEach((slider) => {
+            initializeSlider(slider);
+          });
+        };
+
+        const initializeSlider = (slider) => {
+          const slides = slider.querySelectorAll('[data-type="slide"]');
+          const middle = Math.ceil(slides.length / 2);
+          let currentSlide = middle;
+
+          const nextSlideBtns = document.querySelectorAll(
+            '[data-action="nextSlide"]'
+          );
+          const previousSlideBtns = document.querySelectorAll(
+            '[data-action="previousSlide"]'
+          );
+
+          const changeSlide = (slideIndex, action) => {
+            currentSlide = slideIndex;
+
+            switch (action) {
+              case "next":
+                slideIndex === slides.length
+                  ? (currentSlide = 1)
+                  : currentSlide++;
+                break;
+              case "previous":
+                slideIndex === 1
+                  ? (currentSlide = slides.length)
+                  : currentSlide--;
+            }
+
+            const slide = slides[0];
+            if (!slide) {
+              console.error("No slides present");
+              return;
+            }
+            const style = window.getComputedStyle(slide);
+            slideWidth =
+              parseInt(style.width) +
+              parseInt(style.marginLeft) +
+              parseInt(style.marginRight);
+            const transformValue = -slideWidth * (currentSlide - middle);
+
+            slider.style.transform = `translateX(${transformValue}px)`;
+          };
+
+          previousSlideBtns.forEach((btn) => {
+            btn.addEventListener("click", () =>
+              changeSlide(currentSlide, "previous")
+            );
+          });
+
+          nextSlideBtns.forEach((btn) => {
+            btn.addEventListener("click", () =>
+              changeSlide(currentSlide, "next")
+            );
+          });
+        };
+
+        runAllScripts();
+      };
+    </script>
+  </body>
+</html>

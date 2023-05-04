@@ -1,0 +1,8 @@
+.component-container {
+  display: flex;
+  position: relative;
+}
+.component-link {
+  align-self: flex-start;
+  padding-right: var(--dl-space-space-sixunits);
+}

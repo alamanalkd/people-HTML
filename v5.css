@@ -1,0 +1,102 @@
+.v5-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.v5-testimonial {
+  width: 100%;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.v5-image {
+  width: var(--dl-size-size-xxlarge);
+  height: var(--dl-size-size-xxlarge);
+  object-fit: cover;
+  border-radius: var(--dl-radius-radius-round);
+}
+.v5-testimonial1 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.v5-container1 {
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.v5-container2 {
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.v5-text {
+  font-size: 1.5rem;
+  max-width: 600px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.v5-text4 {
+  max-width: 600px;
+  text-align: center;
+  font-weight: 600;
+}
+.v5-container3 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media(max-width: 991px) {
+  .v5-image {
+    margin-bottom: 0px;
+  }
+}
+@media(max-width: 767px) {
+  .v5-testimonial {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+}
+@media(max-width: 479px) {
+  .v5-testimonial {
+    padding-top: var(--dl-space-space-twounits);
+    padding-left: var(--dl-space-space-unit);
+    padding-right: var(--dl-space-space-unit);
+    padding-bottom: var(--dl-space-space-twounits);
+  }
+  .v5-image {
+    width: 200px;
+  }
+  .v5-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .v5-text2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .v5-text4 {
+    font-weight: 600;
+  }
+  .v5-text5 {
+    padding-bottom: 0px;
+  }
+}

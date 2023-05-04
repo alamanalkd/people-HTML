@@ -1,0 +1,10 @@
+.icon-container {
+  display: flex;
+  position: relative;
+}
+.icon-icon {
+  flex: 1;
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-small);
+  align-self: center;
+}
