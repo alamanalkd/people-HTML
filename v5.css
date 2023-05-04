@@ -22,13 +22,22 @@
   object-fit: cover;
   border-radius: var(--dl-radius-radius-round);
 }
+.v5-container1 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .v5-testimonial1 {
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: flex-start;
 }
-.v5-container1 {
+.v5-container2 {
   border: 2px dashed rgba(120, 120, 120, 0.4);
   display: flex;
   align-self: flex-start;
@@ -36,7 +45,7 @@
   flex-direction: row;
   justify-content: flex-start;
 }
-.v5-container2 {
+.v5-container3 {
   border: 2px dashed rgba(120, 120, 120, 0.4);
   display: flex;
   align-self: flex-end;
@@ -56,7 +65,7 @@
   text-align: center;
   font-weight: 600;
 }
-.v5-container3 {
+.v5-container4 {
   flex: 0 0 auto;
   width: 100%;
   height: 100px;
